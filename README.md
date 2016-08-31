@@ -6,7 +6,7 @@
 * **[Syllabus](https://github.com/gdlc/STT465/blob/master/STT465_Syllabus.pdf)**
 * **[Required textbook](http://www.stat.washington.edu/people/pdhoff/book.php)**
 * **[R-software](http://www.r-project.org/)**
-* **[Syllabus]**(https://github.com/gdlc/STT465/blob/master/STT465_Syllabus.pdf)
+* **[Syllabus](https://github.com/gdlc/STT465/blob/master/STT465_Syllabus.pdf)**
 
 
 
