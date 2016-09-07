@@ -22,15 +22,14 @@
   * Probability functions as a way of describing beliefs
   * Independence
   * Conditional independence
-  * Random Variables
-   * Discrete RV (definition, pdf, probability of events, examples, includin Bernoulli, Binomial and Poisson)
-   * Contionous RV (definition, CDF, pdf, examples: Normal)
-   * Expectation, Variance and Covaraiance.
-   * Joint Marginal and Conditional Distributions (both for discrete and contionous)
-   * The joint distribution of independent RV
-   * Exchangeability (definiton)
-   * Conditional independence (Bernoulli model)
-   * De Finetty's Theorem
+  * Discrete RV (definition, pdf, probability of events, examples, includin Bernoulli, Binomial and Poisson)
+  * Contionous RV (definition, CDF, pdf, examples: Normal)
+  * Descriptors of Distributions: Expectation, Variance, quantiles.
+  * Joint Marginal and Conditional Distributions (both for discrete and contionous)
+  * The joint distribution of independent RV
+  * Exchangeability (definiton and example: Bernoulli)
+  * Conditional independence (example: Bernoulli model)
+  * De Finetty's Theorem (theorem and implications for building Bayesian models)
  
 ## Chapter 3. One Parameter Models
 
