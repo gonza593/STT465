@@ -31,7 +31,6 @@
    * Exchangeability (definiton)
    * Conditional independence (Bernoulli model)
    * De Finetty's Theorem
-   *
  
 ## Chapter 3. One Parameter Models
 
