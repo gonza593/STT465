@@ -26,10 +26,20 @@
   * Contionous RV (definition, CDF, pdf, examples: Normal)
   * Descriptors of Distributions: Expectation, Variance, quantiles.
   * Joint Marginal and Conditional Distributions (both for discrete and contionous)
-  * The joint distribution of independent RV
+  * The joint distribution of independent and IID RV
   * Exchangeability (definiton and example: Bernoulli)
   * Conditional independence (example: Bernoulli model)
   * De Finetty's Theorem (theorem and implications for building Bayesian models)
  
 ## Chapter 3. One Parameter Models
-
+ * Beta-Binomial Model
+    * Sampling Model
+    * Maximum Likelihood Estimation
+    * Large sample distribution of MLE
+    * CI
+    * Prior
+    * Posterior
+    * Bayesian inference
+      * Maximum a posteriori
+      * Posterior mean
+      * Bayesian Credibility Regions
