@@ -9,7 +9,8 @@
 * **[Syllabus](https://github.com/gdlc/STT465/blob/master/STT465_Syllabus.pdf)**
 * **[Tentative Schedule](https://github.com/gdlc/STT465/blob/master/SCHEDULE.pdf)**
 
-
+## Homework
+ * **[HW 1](https://www.dropbox.com/s/xj5uf9540udtdje/HW1_STT465.pdf?dl=0)** (Due W Sept 14 in class).
 
 ## Chapter 2. Belief, probability and exchangeability
 
