@@ -33,14 +33,22 @@
   * De Finetty's Theorem (theorem and implications for building Bayesian models)
  
 ## Chapter 3. One Parameter Models
- * Beta-Binomial Model
+ * For the Beta-Binomial and Poisson-Gamma models we will cover:
     * Sampling Model
     * Maximum Likelihood Estimation
     * Large sample distribution of MLE
-    * CI
+    * Large sample Frequentist CI (computation and interpretation)
     * Prior
     * Posterior
     * Bayesian inference
       * Maximum a posteriori
       * Posterior mean
       * Bayesian Credibility Regions
+
+## Chapter 4. Monte Carlo Approximation
+  * The method
+  * Inference of arbitrary functions
+  * The predictive distribution
+  * 
+
+## Chapter 5. The Normal Model
