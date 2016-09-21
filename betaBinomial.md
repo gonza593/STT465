@@ -1,3 +1,11 @@
+
+## Example: Effect of Sample Size on Likelihood and Posterior Inferences
+
+The following example displays the likelihood and posterior density (both up to a constant)
+of the Beta-Binomial model, assuming that a sample has render a sample mean of 0.3 (average
+number of successes in the sample) with sample size being varied from 10 to 100.
+
+```R
 # Data
   N=c(5,10,20,50,100)
   xBar=.1
@@ -44,3 +52,6 @@
  	lines(x=theta,y=L[,i],col=i,lty=2)
  }
  
+```
+ 
+
