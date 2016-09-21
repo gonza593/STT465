@@ -22,7 +22,7 @@ number of successes in the sample) with sample size being varied from 10 to 100.
   L=matrix(nrow=length(theta),ncol=length(N))
   
   logLik=function(xBar,n,theta){
-  	nSuc=xBar*n
+  	nSuc=round(xBar*n)
   	nFail=(n-nSuc)
   	log_lik=nSuc*log(theta)+nFail*log(1-theta)
   	return(log_lik)
