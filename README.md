@@ -11,7 +11,8 @@
 
 ## Homework
  * **[HW 1](https://www.dropbox.com/s/xj5uf9540udtdje/HW1_STT465.pdf?dl=0)** (Due W Sept 14 in class).
-
+ * **HW 2**: Problems 3.3, 3.7 and 3.9 from the book (due  Wednesday, Sept 28th in class).
+ 
 ## Chapter 2. Belief, probability and exchangeability
 
  * Sections: 2.1-2.8, tpics covered:
