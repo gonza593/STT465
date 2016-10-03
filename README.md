@@ -63,7 +63,12 @@
     * Normal prior for the mean
     * Posterior distribution for the mean
     * The Bayesian estimate as a compromise between the information provided by the likelihood (MLE estiamate) and that conveyed by the prior.
-    * Bayesian model for the mean and the variance
-     * The scaled-inverse Chi-square
-     * The fully conditional distribution
-     * A Gibbs sampler fro the normal model.
+    * The normal model for the mean and variance
+      * Likelihood
+      * The Scaled-invers Chi-square
+      * Joint prior distribution for the mean and variance
+      * Joint posterior
+      * Alternative sampling schemes
+## Chapter 6. The Gibbs Sampler
+   * [Casella & George, AMSTAT, 1992](http://www.jstor.org/stable/2685208?Search=yes&resultItemClick=true&searchText=casella&searchText=the&searchText=gibbs&searchText=sampler&searchText=1992&searchUri=%2Faction%2FdoBasicSearch%3FQuery%3Dcasella%2Bthe%2Bgibbs%2Bsampler%2B1992%26amp%3Bacc%3Doff%26amp%3Bwc%3Don%26amp%3Bfc%3Doff%26amp%3Bgroup%3Dnone&seq=1#page_scan_tab_contents)
+   * The Gibbs sample in the normal model for the mean and variance
