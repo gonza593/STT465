@@ -50,6 +50,20 @@
   * The method
   * Inference of arbitrary functions
   * The predictive distribution
-  * 
+    * In the Beta-Biomial model
+    * In the Poisson-Gamma model
 
 ## Chapter 5. The Normal Model
+  * The normal distribution: parameters, and properties
+  * Likelihood for nomal model
+    * MLE estimate of the mean and variance
+    * Bias and variance of the MLE estimates
+  * Bayesian model for the mean with known variance
+    * Likelihood
+    * Normal prior for the mean
+    * Posterior distribution for the mean
+    * The Bayesian estimate as a compromise between the information provided by the likelihood (MLE estiamate) and that conveyed by the prior.
+    * Bayesian model for the mean and the variance
+     * The scaled-inverse Chi-square
+     * The fully conditional distribution
+     * A Gibbs sampler fro the normal model.
