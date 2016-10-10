@@ -2,6 +2,7 @@
 # A simple Gibbs Sampler for the mean and variance of a normal model   #
 ########################################################################
 
+```R
 
 ## Toy simulation to test the program
  n=100
@@ -51,3 +52,5 @@
  plot(hist(varE,30))
  abline(v=var(y),lwd=2,col=2)
  plot(mu,varE)
+
+```
