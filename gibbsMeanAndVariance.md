@@ -52,5 +52,4 @@
  plot(hist(varE,30))
  abline(v=var(y),lwd=2,col=2)
  plot(mu,varE)
-
 ```
