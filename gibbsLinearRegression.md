@@ -42,7 +42,7 @@
     rhs=sum(X[,j]*yStar)/varE[i-1]+b0[j]/varB[j]
     C=SSx[j]/varE[i-1]+1/varB[j]
     sol=rhs/C
-    b[j]=rnorm(1)/sqrt(C)+sol
+    b[j]=rnorm(n=1,mean=sol,sd=sqrt(1/C))
   }
   B[i,]=b
   # sampling the error variance
