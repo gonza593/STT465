@@ -15,7 +15,7 @@
 
 5. Implement a Gibbs Sampler using the fully conditionals you derived
 
-6. Using the LDL data set run 1200 iterations of your sampler for a regression of LDL cholesterol levels on sex. Discard the first 200 iterations for burn in.
+6. Using the [gout](https://github.com/gdlc/STT465/blob/master/gout.txt) data set run 1200 iterations of your sampler for a regression of LDL cholesterol levels on sex. Discard the first 200 iterations for burn in.
     6.a. Report trace plots for each of the parameters
     6.b. Report density plots for each of the parameters
     6.c. What is the estimated difference in LDL cholesterol between male and female? Report an estimate and a 95% posterior credibility region.
