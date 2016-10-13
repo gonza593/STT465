@@ -70,4 +70,7 @@
       * Alternative sampling schemes
 ## Chapter 6. The Gibbs Sampler
    * [Casella & George, AMSTAT, 1992](http://www.jstor.org/stable/2685208?Search=yes&resultItemClick=true&searchText=casella&searchText=the&searchText=gibbs&searchText=sampler&searchText=1992&searchUri=%2Faction%2FdoBasicSearch%3FQuery%3Dcasella%2Bthe%2Bgibbs%2Bsampler%2B1992%26amp%3Bacc%3Doff%26amp%3Bwc%3Don%26amp%3Bfc%3Doff%26amp%3Bgroup%3Dnone&seq=1#page_scan_tab_contents)
-   * The Gibbs sample in the normal model for the mean and variance
+   * The Gibbs sampler in the normal model for the mean and variance
+   * Gibbs sampler for a multiple linear regression model
+   
+
