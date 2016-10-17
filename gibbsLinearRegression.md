@@ -9,7 +9,8 @@
  beta=2
  y=int+x*beta+rnorm(n)
  
- 
+
+## Generating an incidence matrix for effects (intercetp and regression coeff)
   X=cbind(1,x)
   n=nrow(X)
   p=ncol(X)
@@ -22,8 +23,8 @@
  
  
 ## Parameters that control the algorithm
- nIter=100
- 
+ nIter=11000
+ burnIn=1000
  
 ## Objects that will store samples
  B=matrix(nrow=nIter,ncol=p,NA)
@@ -55,7 +56,18 @@
  }
 
  plot(varE)
- plot(B[,1])
- plot(B[,2])
+ plot(B[,1],type='o')
+ plot(B[,2],type='o')
+ 
+ # 95% Cred. Regions
+  apply(FUN=quantile,prob=c(.025,.975),X=B[-c(1:burnIn),MARGIN=2)
+
+ # Posterior Means
+  colMeans(B[-c(1:burnIn))
+
+ # Posterior SD
+  apply(FUN=sd,X=B[-c(1:burnIn),MARGIN=2)
+
+ 
  
 ```
