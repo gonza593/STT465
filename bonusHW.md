@@ -10,7 +10,7 @@ the sum of likely voters that manifest they will vote for T or H.
 
 Finally, although I have no real idea of the sample size used to estimate the % of likely Trump/Hillary supporters, I added a column
 where I put a theoretical sample size considering that regular polls in the US include ~1000 participants and that the average reported by
-RCP usually include 4-6 independent polls.
+RCP usually include 4-6 independent polls. Consider `N` the sample size used to compute the mean reported in the last column.
 
 Using the data provided 
 
