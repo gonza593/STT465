@@ -87,7 +87,7 @@ GIBBS.MM=function(y,X,group,type,nIter,burnIn){
      C=SSx[j]/varE[i-1]+1/varB[i-1,group[j]] #*#
      sol=rhs/C
      b[j]=rnorm(n=1,mean=sol,sd=sqrt(1/C))
-    error=error+X[,j]*b[j]
+    error=error-X[,j]*b[j]
   }
   B[i,]=b
   # sampling the error variance
