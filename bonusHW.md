@@ -23,8 +23,9 @@ Using the data provided
 
 Submit your HW at my e-mail gustavoc@msu.edu.
 
-Submit beefore Nov. 8th, 8pm  EST time: get up to 15 points towards the miterm.
-Submit after Nov. 8th 8pm and Saturday Nov. 12th, get up to 10 points towards the midterm.
+**Submit beefore Nov. 8th, 8pm  EST time**: get up to 15 points towards the miterm.
+
+**Submit between Nov. 8th 8pm and Saturday Nov. 12th**: get up to 10 points towards the midterm.
 
 In any case be ready to explain your approach/answeres in class.
 
