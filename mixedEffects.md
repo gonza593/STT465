@@ -91,7 +91,6 @@ GIBBS.MM=function(y,X,group,type,nIter,burnIn){
   }
   B[i,]=b
   # sampling the error variance
- 	 error=y-X%*%b
  	 SS=sum(error^2)+S0.e
  	 DF=n+df0.e
  	 varE[i]=SS/rchisq(n=1,df=DF)
