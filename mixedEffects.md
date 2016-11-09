@@ -38,6 +38,10 @@ The variance of effects can be treated as uknown, in the same way we treated the
 
 ```R
 GIBBS.MM=function(y,X,group,type,nIter){
+ 
+ whichNA=which(is.na(y))
+ nNA=length(whichNA)
+ 
  n=nrow(X)
  p=ncol(X)
 ## Centering all columns except the 1st (intercept)
@@ -56,9 +60,13 @@ GIBBS.MM=function(y,X,group,type,nIter){
  
 ## Objects that will store samples
  B=matrix(nrow=nIter,ncol=p,NA)
- B[1,1]=mean(y) #initializing the intercept
+ B[1,1]=mean(y,na.rm=T) #initializing the intercept
  B[1,-1]=0 # now regression coef
+
  error=y-mean(y) #*#
+ if(nNA>0){
+  error[whichNA]=0
+ }
  varE=rep(NA,nIter)
  varE[1]=var(y)
  
@@ -104,6 +112,13 @@ GIBBS.MM=function(y,X,group,type,nIter){
   		DF=groupSize[j]+df0.b
   		varB[i,j]=SS/rchisq(n=1,df=DF)
   	}
+  # Sample missing values
+   if(nNA>0){
+      z=rnorm(n=nNA,sd=sqrt(varE[i]),mean=0)
+      yHatNAs=X[whichNA,]%*%B[i,]
+      y[whichNA]=yHatNAs+z
+      error[whichNA]=y[whichNA]-yHatNAs
+   }
   }
  }
  out=list(varE=varE,B=B,varB=varB)
