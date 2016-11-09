@@ -82,12 +82,13 @@ GIBBS.MM=function(y,X,group,type,nIter){
   # Sampling effects
   b=B[i-1,]
   for(j in 1:p){ 
-    error=error+X[,j]*b[j] #*#
-     rhs=sum(X[,j]*error)/varE[i-1]+b0[group[j]]/varB[i-1,group[j]] #*#
+    xj=X[,j]
+    error=error+xj*b[j] #*#
+     rhs=sum(xj*error)/varE[i-1]+b0[group[j]]/varB[i-1,group[j]] #*#
      C=SSx[j]/varE[i-1]+1/varB[i-1,group[j]] #*#
      sol=rhs/C
      b[j]=rnorm(n=1,mean=sol,sd=sqrt(1/C))
-    error=error-X[,j]*b[j]
+    error=error-xj*b[j]
   }
   B[i,]=b
   # sampling the error variance
@@ -105,7 +106,6 @@ GIBBS.MM=function(y,X,group,type,nIter){
   	}
   }
  }
- 
  out=list(varE=varE,B=B,varB=varB)
  return(out)
 }
@@ -113,5 +113,12 @@ GIBBS.MM=function(y,X,group,type,nIter){
 
 ## Example
 
-
+```R
+  Z=as.matrix(model.matrix(~cage-1))
+  groups=c(1,rep(2,ncol(Z)))
+  type=c("fixed","random")
+  fmB=GIBBS.MM(y=y,X=cbind(1,Z),group=groups,type=type,nIter=600)
+  bHat=colMeans(fm$B[-(1:100),])
+  yHat=cbind(1,Z)%*%bHat
+```
 
