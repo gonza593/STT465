@@ -118,7 +118,11 @@ GIBBS.MM=function(y,X,group,type,nIter){
   groups=c(1,rep(2,ncol(Z)))
   type=c("fixed","random")
   fmB=GIBBS.MM(y=y,X=cbind(1,Z),group=groups,type=type,nIter=600)
-  bHat=colMeans(fm$B[-(1:100),])
-  yHat=cbind(1,Z)%*%bHat
+  bHatB=colMeans(fmB$B[-(1:100),])
+  yHatB=cbind(1,Z)%*%bHatB
+  yHatOLS=predict(fm)
+  tmp=range(yHat,yHatOLS)
+  plot(predict(fm),yHatB,ylim=tmp, xlim=tmp)
+  abline(a=0,b=1,col=2)
 ```
 
