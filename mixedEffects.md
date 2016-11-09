@@ -37,7 +37,7 @@ The variance of effects can be treated as uknown, in the same way we treated the
 #### Gibbs Sampler
 
 ```R
-GIBBS.MM=function(y,X,group,type,nIter,burnIn){
+GIBBS.MM=function(y,X,group,type,nIter){
  n=nrow(X)
  p=ncol(X)
 ## Centering all columns except the 1st (intercept)
