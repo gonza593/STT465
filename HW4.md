@@ -4,7 +4,7 @@
 **Due**: Monday Nov. 22nd before class (printed copy at the class or earlier in my mailbox).
 
 **Notes**:
-  - For all the problems use at least 3500 iterations and 500 for burn in.
+  - For all the problems use at least 3500 iterations and 500 for burn-in.
   - You can get most of the code needed for the HW from Examples 1, 2 and 3 of this [entry](https://github.com/gdlc/STT465/blob/master/mixedEffects.md). Some additional modifications are needed, but the core of the code needed is there.
 
 **Problem 1**. Compare goodness of fit and prediction accuracy of OLS and Bayesian regression.
