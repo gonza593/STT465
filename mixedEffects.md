@@ -35,7 +35,7 @@ However, in this case we want the prior to influence estimates. Using a smaller 
 The variance of effects can be treated as uknown, in the same way we treated the error variance as uknown. The following sampler allows us to do that. The algorithm involves minimal changes relative to the one we used for the case of a model with a 'flat' prior for effects. I took the code of the [Gibbs Sampler for Multiple Linear Regression](https://github.com/gdlc/STT465/blob/master/gibbsLinearRegression.md) and made modifications so that we can group predictors into sets. Each set has it's own variance of effects. For some we can specify `type='fixed'` in which case the prior variance is assinged a large value and not updated, or `type='random'` in which case the variance parameter is sampled from the posterior density.
 
 #### Gibbs Sampler
-
+The following Gibbs Sampler implements a multiple linear regression model of the form `y=Xb+e`. Here, `y` is an nx1 vector (NAs allowed), `X` (nxp) is an incidence matrix for effects (if you want an intercept include it in `X`), `b` (px1) is a vector of effects and `e` is a vector of model residuals which are assumed to be IID normal with null mean and common variance (varE). The effects of `X` are grouped into terms according to the index provided in `group` (integer, px1). The prior of effects are normal with zero mean and group-specific variance. The vector `type` indicate for every group wheather to assign a flat (`"fixed"`) or non-flat (`"random"`) prior. For flat prior the variance is set to a very large value, for non-flat priors the variance is sampled from the fully conditional density (one variance per group). All variances are assigned scaled-inverse chi-square prior densities.
 ```R
 GIBBS.MM=function(y,X,group,type,nIter){
  
@@ -63,17 +63,18 @@ GIBBS.MM=function(y,X,group,type,nIter){
  B[1,1]=mean(y,na.rm=T) #initializing the intercept
  B[1,-1]=0 # now regression coef
 
- error=y-mean(y) #*#
+ error=y-B[1,1] #*#
  if(nNA>0){
   error[whichNA]=0
+  yStar=rep(B[1,1],nNA)
  }
  varE=rep(NA,nIter)
- varE[1]=var(y)
+ varE[1]=var(y,na.rm=T)
  
  varB=matrix(nrow=nIter,ncol=nGroups)
  colVar=apply(FUN=var,X=X,MARGIN=2)
  
- Vy=var(y)
+ Vy=varE[1]
  Vmodel=.5*Vy
  Vb=Vmodel/sum(colVar)
  for(i in 1:nGroups){
@@ -112,32 +113,54 @@ GIBBS.MM=function(y,X,group,type,nIter){
   		DF=groupSize[j]+df0.b
   		varB[i,j]=SS/rchisq(n=1,df=DF)
   	}
-  # Sample missing values
-   if(nNA>0){
-      z=rnorm(n=nNA,sd=sqrt(varE[i]),mean=0)
-      yHatNAs=X[whichNA,]%*%B[i,]
-      y[whichNA]=yHatNAs+z
-      error[whichNA]=y[whichNA]-yHatNAs
-   }
   }
+  # Sample missing values 
+   if(nNA>0){
+      yHat=(yStar-error[whichNA])
+      yStar=rnorm(n=nNA,sd=sqrt(varE[i]),mean=yHat)
+      error[whichNA]=yStar-yHat
+   }
  }
  out=list(varE=varE,B=B,varB=varB)
  return(out)
 }
 ```
 
-## Example
+## Example 1: Without NAs
 
 ```R
+  
+  library(BGLR)
+  data(mice)
+  y=scale(mice.pheno$Obesity.BMI)
+  cage=factor(mice.pheno$cage)
+
   Z=as.matrix(model.matrix(~cage-1))
   groups=c(1,rep(2,ncol(Z)))
   type=c("fixed","random")
+  fm=lm(y~cage-1)
   fmB=GIBBS.MM(y=y,X=cbind(1,Z),group=groups,type=type,nIter=600)
   bHatB=colMeans(fmB$B[-(1:100),])
   yHatB=cbind(1,Z)%*%bHatB
   yHatOLS=predict(fm)
-  tmp=range(yHat,yHatOLS)
+  tmp=range(yHatB,yHatOLS)
   plot(predict(fm),yHatB,ylim=tmp, xlim=tmp)
   abline(a=0,b=1,col=2)
 ```
 
+## Example 2: With NAs 
+
+Here we create a testing set `tst` and use it to evaluate predction correlation.
+
+```R
+  tst=sample(1:nrow(Z),size=200)
+  yNA=y
+  yNA[tst]=NA
+
+  fmB_NA=GIBBS.MM(y=yNA,X=cbind(1,Z),group=groups,type=type,nIter=60)
+  bHatB_NA=colMeans(fmB_NA$B[-(1:2),])
+  yHatB_NA=cbind(1,Z)%*%bHatB_NA
+  cor(yHatB_NA[tst],y[tst]) # correlation in the testing set
+  cor(yHatB_NA[-tst],y[-tst]) # correlation in the training set
+
+```
