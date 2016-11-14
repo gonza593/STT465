@@ -132,35 +132,82 @@ GIBBS.MM=function(y,X,group,type,nIter){
   
   library(BGLR)
   data(mice)
-  y=scale(mice.pheno$Obesity.BMI)
-  cage=factor(mice.pheno$cage)
+  
+  # remove data from cages with a single mice
+   mice.pheno$cage=as.character(mice.pheno$cage)
+   counts=table(mice.pheno$cage)
+   tmp=names(counts)[counts>2]
+   tmp=mice.pheno$cage%in%tmp
+   mice.pheno=mice.pheno[tmp,]
+    
+  # phenotype and predictor
+   y=scale(mice.pheno$Obesity.BMI)
+   cage=factor(mice.pheno$cage)
 
-  Z=as.matrix(model.matrix(~cage-1))
-  groups=c(1,rep(2,ncol(Z)))
-  type=c("fixed","random")
-  fm=lm(y~cage-1)
-  fmB=GIBBS.MM(y=y,X=cbind(1,Z),group=groups,type=type,nIter=600)
-  bHatB=colMeans(fmB$B[-(1:100),])
-  yHatB=cbind(1,Z)%*%bHatB
-  yHatOLS=predict(fm)
-  tmp=range(yHatB,yHatOLS)
-  plot(predict(fm),yHatB,ylim=tmp, xlim=tmp)
-  abline(a=0,b=1,col=2)
+  # incidence matrix
+   Z=as.matrix(model.matrix(~cage-1))
+ 
+ 
+  # OLS 
+   fm=lm(y~cage-1)
+   
+  # Bayesian
+   groups=c(1,rep(2,ncol(Z)))
+   type=c("fixed","random")
+   fmB=GIBBS.MM(y=y,X=cbind(1,Z),group=groups,type=type,nIter=600)
+   
+  # Comparison of OLS and Bayesian 
+   bHatB=colMeans(fmB$B[-(1:100),])
+   yHatB=cbind(1,Z)%*%bHatB
+   yHatOLS=predict(fm)
+   tmp=range(yHatB,yHatOLS)
+   plot(predict(fm),yHatB,ylim=tmp, xlim=tmp)
+   abline(a=0,b=1,col=2)
 ```
 
 ## Example 2: With NAs 
 
-Here we create a testing set `tst` and use it to evaluate predction correlation.
+Here we create a testing set `tst` by asigning mice within cage to a testing set. 
 
 ```R
+
+ # Sampling a tst set 
   tst=sample(1:nrow(Z),size=200)
   yNA=y
   yNA[tst]=NA
 
-  fmB_NA=GIBBS.MM(y=yNA,X=cbind(1,Z),group=groups,type=type,nIter=600)
-  bHatB_NA=colMeans(fmB_NA$B[-(1:10),])
-  yHatB_NA=cbind(1,Z)%*%bHatB_NA
-  cor(yHatB_NA[tst],y[tst]) # correlation in the testing set
-  cor(yHatB_NA[-tst],y[-tst]) # correlation in the training set
+ # OLS
+ 
+  fmOLS=lm(yNA~Z-1)
+  bHatOLS=coef(fmOLS)
+  yHatOLS=Z%*%bHatOLS
+  
+  fmB=GIBBS.MM(y=yNA,X=cbind(1,Z),group=groups,type=type,nIter=600)
+  bHatB=colMeans(fmB$B[-(1:10),])
+  yHatB=cbind(1,Z)%*%bHatB
+  
+  COR=matrix(nrow=2,ncol=2)
+  colnames(COR)=c('TRN','TST')
+  rownames(COR)=c('OLS','Bayes')
+  
+  COR[1,1]=cor(yHatOLS[-tst],y[-tst])
+  COR[1,2]=cor(yHatOLS[tst],y[tst])
+  COR[2,1]=cor(yHatB[-tst],y[-tst])
+  COR[2,2]=cor(yHatB[tst],y[tst])
+  
+```
 
+## Example: regression using cage and SNPs (genetic markers)
+
+```R
+   tmp=which(rownames(mice.X)%in%mice.pheno$SUBJECT.NAME)
+   
+   W=scale(mice.X[tmp,])
+   W=W[,rep(c(TRUE,rep(FALSE,9)),times=ceiling(ncol(X)/10))[1:ncol(X)]]   
+   groups=c(1,rep(2,ncol(Z)),rep(3,ncol(W)))
+   type=c('fixed','random','random')
+   fmB2=GIBBS.MM(y=yNA,X=cbind(1,Z,W),group=groups,type=type,nIter=600)
+   yHatB2=cbind(1,Z,W)%*%colMeans(fmB2$B[-c(1:100),])
+   cor(yHatB2[tst],y[tst])
+   
 ```
