@@ -1,25 +1,16 @@
-# HW4: Mixed effecst linear models
+# HW4: Mixed effects linear models
 
 
-**Due**: Monday Nov. 22nd before class (printed copy at my mailbox).
+**Due**: Monday Nov. 22nd before class (printed copy at the class or earlier in my mailbox).
 
+*Note*: 
+    - For all the problems use at least 3500 iterations and 500 for burn in.
+    - You can get most of the code needed for the HW from Examples 1, 2 and 3 of this [entry](https://github.com/gdlc/STT465/blob/master/mixedEffects.md). Some additional modifications are needed, but the core of the code needed is there.
 
-**Problem 1**. Using the mice data set fit a linear regression of BMI on an intercept plus cage effects. Througout the problem 
-use 2200 iterations and a burn-in of 200. 
+**Problem 1**. Compare goodness of fit and prediction accuracy of OLS and Bayesian regression.
 
+Compute the correlation between predictions and observations in training and testing data sets using 30 training-testing partitions. Report: (i) a plot with training correlation for OLS versus training correlation for the Bayesian model and a 45-degree line added. (ii) the same plot with testing correlation, (iii)  a table with mean training and testing correlation per method and the proportion of times (over training-testing partitions) where the Bayesian gave higher correlation in each of the sets. (iv) Summarize your findings in 1 paragraph.
 
-1.1. Fit the model to the entire data set and report for the error variance and the variance of cage effects: (i) trace and density plot 
-(i) estimated posterior means, SD and 95% credibility regions, (iii) estimated effective number of samples.
+**Problem 2** Comparison of models based on cage versus models based on cage and molecular markers.
 
-1.2. Conduct a 5-fold cross-validation with assigment of individuals within cage to folds. Report for each fold the training and testing
-correlation.
-
-
-**Problem 2** Repeat the analysis of question 1 using both cages and SNPs as predictors. Estimate a variance specific to cage and one specific to SNPs.
-
-2.1. Report the same items requested in 1.1 including in this case the variance of SNP effects as well.
-
-2.2. Conduct the same analysis and report the same items requested in 1.2 for the model using both cage and SNPs as effect.s
-
-
-**3** Summarize your conclusions. Does adding SNP improve the model? Why yes, why not?
+Repeat the analysis done in Problem 1 taking as the two models being compared a Bayesian model with cage as predictors and one with cage and SNPs as predictors.
