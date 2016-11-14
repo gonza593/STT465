@@ -157,8 +157,8 @@ Here we create a testing set `tst` and use it to evaluate predction correlation.
   yNA=y
   yNA[tst]=NA
 
-  fmB_NA=GIBBS.MM(y=yNA,X=cbind(1,Z),group=groups,type=type,nIter=60)
-  bHatB_NA=colMeans(fmB_NA$B[-(1:2),])
+  fmB_NA=GIBBS.MM(y=yNA,X=cbind(1,Z),group=groups,type=type,nIter=600)
+  bHatB_NA=colMeans(fmB_NA$B[-(1:10),])
   yHatB_NA=cbind(1,Z)%*%bHatB_NA
   cor(yHatB_NA[tst],y[tst]) # correlation in the testing set
   cor(yHatB_NA[-tst],y[-tst]) # correlation in the training set
