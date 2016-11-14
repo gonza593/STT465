@@ -9,7 +9,9 @@
 
 **Problem 1**. Compare goodness of fit and prediction accuracy of OLS and Bayesian regression.
 
-Compute the correlation between predictions and observations in training and testing data sets using 30 training-testing partitions. Report: 
+Compute the correlation between predictions and observations in training and testing data sets using 30 training-testing partitions. For each partition choose 200 observation completely at randomand use them for testing. 
+
+**Report**: 
  1. A plot with training correlation for OLS versus training correlation for the Bayesian model and a 45-degree line added, 
  2. The same plot with testing correlation,
  3. A table with mean training and testing correlation per method and the proportion of times (over training-testing partitions) where the Bayesian gave higher correlation in each of the sets, 
