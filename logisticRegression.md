@@ -4,7 +4,7 @@ Logistic regression is one of the most commonly used regression methods used for
 at the level of the logit
 
           
-            `log(theta_i/(1-theta_i))]xi'beta`
+            log(theta_i/(1-theta_i))]xi'beta
             
  
  The following function evaluates the negative log-likelihood for a logistic regression.
