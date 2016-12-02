@@ -22,10 +22,10 @@ The following example illustrates how to fit a logistic regression for Gout on U
 Implement a Metropolis Hastings Algorithm for a Bayesian Logistic Regression. Use your algorithm to draw 15000 samples of the intercept and of the regression coefficient.
 
 **Report**:
-    - Trace plot for each of the parameters (how many iterations are you going to discard for burn-in?).
-    - Estimated posterior means, SD and 95% credibility regions. 
-    - Auto-correlation plots and estimated number of effective samples.
-    - Are your estimates similar to ML?
-    - Are you satisfied with your algorithm? If not, how could you improve it?
+  - Trace plot for each of the parameters (how many iterations are you going to discard for burn-in?).
+  - Estimated posterior means, SD and 95% credibility regions. 
+  - Auto-correlation plots and estimated number of effective samples.
+  - Are your estimates similar to ML?
+  - Are you satisfied with your algorithm? If not, how could you improve it?
     
     
