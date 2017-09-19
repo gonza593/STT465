@@ -41,8 +41,8 @@ number of successes in the sample) with sample size being varied from 10 to 100.
  # Saling to get nice plots
    K=max(c(as.vector(PD),as.vector(L)))
    for(i in 1:length(N)){
-   	  PD[,i]=PD[,i]/max(PD[,i])
-   	  L[,i]=L[,i]/max(L[,i]) 
+   	  PD[,i]=PD[,i]/K
+   	  L[,i]=L[,i]/K
    }
 
  plot(numeric()~numeric(),col=1,lty=1,ylim=c(0,1),xlim=range(theta),xlab=expression('theta'))
