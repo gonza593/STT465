@@ -50,8 +50,9 @@ number of successes in the sample) with sample size being varied from 10 to 100.
  
  for(i in 1:length(N)){
  	lines(x=theta,y=PD[,i],col=cols[i],lty=1)
- 	lines(x=theta,y=L[,i],col=cols[i],lty=2)
  }
+ # Adding the prior
+ lines(x=theta,y=dbeta(x=theta,shape1=shape1,shape2=shape2)/K,col='grey',lwd=2)
  
 ```
  
