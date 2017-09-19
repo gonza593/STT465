@@ -7,7 +7,8 @@ number of successes in the sample) with sample size being varied from 10 to 100.
 
 ```R
 # Data
-  N=c(5,10,20,50,100)
+  N=c(5,10,20,50,100);
+  cols=c('black','darkgreen','blue','orange','red') # colors I will use for each sample size
   xBar=.1
   
 # Prior
@@ -48,8 +49,8 @@ number of successes in the sample) with sample size being varied from 10 to 100.
  plot(numeric()~numeric(),col=1,lty=1,ylim=c(0,1),xlim=range(theta),xlab=expression('theta'))
  
  for(i in 1:length(N)){
- 	lines(x=theta,y=PD[,i],col=i,lty=1)
- 	lines(x=theta,y=L[,i],col=i,lty=2)
+ 	lines(x=theta,y=PD[,i],col=cols[i],lty=1)
+ 	lines(x=theta,y=L[,i],col=cols[i],lty=2)
  }
  
 ```
