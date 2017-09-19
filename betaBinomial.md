@@ -54,6 +54,8 @@ number of successes in the sample) with sample size being varied from 10 to 100.
  # Adding the prior
  lines(x=theta,y=dbeta(x=theta,shape1=shape1,shape2=shape2)/K,col='grey',lwd=2)
  
+ # Adding prior mean and the maximum likelihood estimator
+  abline(v=c(xBar,shape1/(shape1+shape2)),col=1,lty=2)
 ```
  
 
