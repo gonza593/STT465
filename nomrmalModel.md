@@ -1,6 +1,6 @@
 ### Normal Model
 
-We will discuss liklelihood and Bayesian inference for the normal model y~N(mu,V). We will begin with the case where the variance is known, 
+We will discuss liklelihood and Bayesian inference for the normal model, p(y|mu,V)=N(mu,V). We will begin with the case where the variance is known, 
 then relax that assumption and discuss the model for the mean and variance. Then we will extend the model to the case where the mean
 is parametrically modeled using a simple linear regression, so that yi~N(mui,V) with mui=mu+xib. Finally we will extend this to the case
 where the mean is modeled using a multiple linear regression.
