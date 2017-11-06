@@ -1,5 +1,7 @@
 ### Bonus Homework (counts up to 10 points of either midterm or final).
 
+Due Monday Nov 13 in class (printed, no e-mails)
+
 (1) Using the [gout](https://github.com/gdlc/STT465/blob/master/gout.txt) data set estimate the effects of sex, race and age on serum urate using the
 `lm()` function.
      1.1. Report your results
