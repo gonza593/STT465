@@ -1,28 +1,48 @@
+### Multiple Linear regression via Ordinary Least Squares (OLS)
+
+The following example illustrates how to implement a multiple linear regression using OLS. We do it using the `lm()` function and with matrix operations.
 
 
+**Data**
+```r
+ DATA=read.table('~/GitHub/STT465/gout.txt',header=T)
+  
+ 
+ head(DATA) #shows first rows, use tail(DATA) to see the last rows and fix(DATA) to see data as a table
+ 
+ # Transforming categorical predictors into factors
+  DATA$sex=factor(DATA$sex,levels=c('M','F'))
+  DATA$race=as.factor(DATA$race) 
+ ```
+ 
+ **OLS usign `lm()`**
+ ```r
+ # OLS esitmation
+  fm=lm(serum_urate~sex+race+age,data=DATA)
+  
+  # extracts estimates, SEs and p-values
+  summary(fm)
+```
 
-DATA$sex=factor(DATA$sex,levels=c('M','F'))
-fm=lm(serum_urate~sex,data=DATA)
-summary(fm)
-fm$coef
-fm$coef[2]
-fm$coef[2]/0.02769
-X=cbind(1,ifelse(DATA$sex=='F'))
-X=cbind(1,ifelse(DATA$sex=='F',1,0))
-head(X)
-y=DATA$serum_urate
-Xy=t(X)%*%y
-XtX=t(X)%*%X
-solve(XtX,Xy
-)
-fm$coef
-bHat=solve(XtX,Xy)
-eHat=y-X%*%bHat
-var(eHat)
-sum(eHat^2)/(nrow(DATA)-2)
-summary(fm)
-1.36^2
-varEHat=sum(eHat^2)/(nrow(DATA)-2)
-XXInv=solve(XtX)
-diag(XXInv)*varEHat
-sqrt(diag(XXInv)*varEHat)
+**OLS using matrix operations**
+
+```r
+ dF=ifelse(DATA$sex=='F',1,0) # a dummy variable for female
+ dW=ifelse(DATA$race=='W',1,0) # a dummy variable for male
+ 
+ # Incidence matrix for intercept and effects of sex, race and age
+ X=cbind(1,dF,dW,DATA$age) 
+ head(X)
+ y=DATA$serum_urate
+
+ # OLS equations
+ Xy=t(X)%*%y
+ XtX=t(X)%*%X
+ # Estimates, compare with fm$coef
+  bHat=solve(XtX,Xy)
+ 
+ # To get SEs we need an estimate of the error variance
+  eHat=y-X%*%bHat
+  vEHat=sum(eHat^2)/(nrow(DATA)-ncol(X)) # Sum of squares of errors divide by n-rank(X)
+  SEs=sqrt(diag(solve(XtX)*vEHat))
+```
