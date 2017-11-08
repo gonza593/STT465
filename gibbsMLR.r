@@ -1,9 +1,16 @@
+## Reading data to test the algorithm
+
+```r
 DATA=read.table('~/GitHub/STT465/gout.txt',header=F)
 colnames(DATA)=c('sex','race','age','serum_urate','gout')
 
 DATA$sex=factor(DATA$sex,levels=c('M','F'))
 DATA$race=as.factor(DATA$race) 
+```
 
+#### Preparing incidence matrix 
+
+```r
 dF=ifelse(DATA$sex=='F',1,0) # a dummy variable for female
 dW=ifelse(DATA$race=='W',1,0) # a dummy variable for male
  
@@ -11,7 +18,11 @@ dW=ifelse(DATA$race=='W',1,0) # a dummy variable for male
  X=cbind(1,dF,dW,DATA$age) 
  head(X)
  y=DATA$serum_urate
+```
 
+#### Gibbs
+
+```r
 ## Hyper-parameters
  varB=1000
  b0=0
@@ -49,5 +60,4 @@ dW=ifelse(DATA$race=='W',1,0) # a dummy variable for male
 }
  print(i)
  }
-
-
+```
