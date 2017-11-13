@@ -1,7 +1,7 @@
 ## Reading data to test the algorithm
 
 ```r
-DATA=read.table('~/GitHub/STT465/gout.txt',header=F)
+DATA=read.table('~/Desktop/gout.txt',header=F)
 colnames(DATA)=c('sex','race','age','serum_urate','gout')
 
 DATA$sex=factor(DATA$sex,levels=c('M','F'))
