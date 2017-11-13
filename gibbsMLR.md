@@ -43,21 +43,16 @@ dW=ifelse(DATA$race=='W',1,0) # a dummy variable for male
  b=B[1,]
 
  for(i in 2:nIter){
-
-  for(j in 1:p){
-
-    C=SSx[j]/varE+1/varB
-
-    yStar=y-X[,-j]%*%b[-j]
-
-    rhs=sum(X[,j]*yStar)/varE  + b0/varB
-    
-    condMean=rhs/C
-    condVar=1/C
-
-    b[j]=rnorm(n=1,mean=condMean,sd=sqrt(condVar))
-    B[i,j]=b[j]  
-}
- print(i)
+   for(j in 1:p){
+     C=SSx[j]/varE+1/varB
+     yStar=y-X[,-j]%*%b[-j]
+     rhs=sum(X[,j]*yStar)/varE  + b0/varB
+     condMean=rhs/C
+     condVar=1/C
+     b[j]=rnorm(n=1,mean=condMean,sd=sqrt(condVar))
+     B[i,j]=b[j]  
+   }
+   print(i)
  }
+ 
 ```
