@@ -16,4 +16,4 @@
 **Homework**:
   - **[HW1](https://github.com/gdlc/STT465/blob/master/HW1_STT465.pdf)**  
   - **HW 2**: Problems 3.3, 3.7 and 3.9 from the book (due  Wednesday, Oct 11th in class).
-  - [**HW 3**](https://github.com/gdlc/STT465/blob/master/OLS_bonus.md)
+  - [**HW 3**](https://github.com/gdlc/STT465/blob/master/HW_OLS_bonus.md)
