@@ -1,4 +1,4 @@
-###(1) Post-Gibbs Analyses
+### (1) Post-Gibbs Analyses
 
 Using the gout data set fit a linear regression model with sex, age and race as effects and serum urate
 as response (note the code for this is available in out GitHub repository, gibbsMLR.md). Collect a total of 20,000 samples.
@@ -19,7 +19,7 @@ as response (note the code for this is available in out GitHub repository, gibbs
    Superimpose in each plot vertical lines indicating the estimated posterior mean and estimated 95% high-posterior density intervals (hint try HPDintervals())
 
 
-###(2) Effects of shrinkage on prediction accuracy in High-dimensional regressions
+### (2) Effects of shrinkage on prediction accuracy in High-dimensional regressions
 
 For this data set we are going to use the wheat data set included in the BGLR package. 
 
