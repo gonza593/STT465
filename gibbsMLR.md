@@ -81,6 +81,6 @@ gibbsMLR=function(y,X,nIter=10000,varB){
 ```r
  samples=gibbsMLR(y,X,nIter=100,varB=10000)
  head(samples$varE) # samples for the error variance
- head(samples$B)    # samples for the effects
+ head(samples$effects)    # samples for the effects
 
 ```
