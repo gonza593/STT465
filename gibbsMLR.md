@@ -25,7 +25,7 @@ dW=ifelse(DATA$race=='W',1,0) # a dummy variable for male
 I wrapped up our Gibbs sampler into a function
 
 ```r
-gibbsMLR=function(y,X,nIter=10000,varB){
+gibbsMLR=function(y,X,nIter=10000,varB,verbose=500){
 
  ## Hyper-parameters (these could be arguments to the function, for now we specify it here
   varB=1000
@@ -68,7 +68,7 @@ gibbsMLR=function(y,X,nIter=10000,varB){
     S=RSS+S0
     varE[i]=S/rchisq(df=DF,n=1)
 
-    print(i)
+    if(i%%verbose==0){ cat(' Iter ', i, '\n') }
   }
  
   out=list(effects=B,varE=varE)
