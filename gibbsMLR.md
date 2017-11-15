@@ -20,7 +20,9 @@ dW=ifelse(DATA$race=='W',1,0) # a dummy variable for male
  y=DATA$serum_urate
 ```
 
-#### Gibbs
+####Gibbs
+
+I wrapped up our Gibbs sampler into a function
 
 ```r
 gibbsMLR=function(y,X,nIter=10000,varB){
@@ -72,4 +74,13 @@ gibbsMLR=function(y,X,nIter=10000,varB){
   out=list(effects=B,varE=varE)
   return(out)
  }
+```
+
+**Use:**
+
+```r
+ samples=gibbsMLR(y,X,nIter=100,varB=10000)
+ head(samples$varE) # samples for the error variance
+ head(samples$B)    # samples for the effects
+
 ```
