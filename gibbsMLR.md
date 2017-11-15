@@ -28,7 +28,6 @@ I wrapped up our Gibbs sampler into a function
 gibbsMLR=function(y,X,nIter=10000,varB,verbose=500){
 
  ## Hyper-parameters (these could be arguments to the function, for now we specify it here
-  varB=1000
   b0=0
   df0=4
   S0=var(y)*0.8*(df0-2)
