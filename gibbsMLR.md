@@ -46,6 +46,8 @@ dW=ifelse(DATA$race=='W',1,0) # a dummy variable for male
  
  resid=y-B[1,1]
  
+ for(i in 2:ncol(X)){  X[,i]=X[,i]-mean(X[,i]) }
+ 
  for(i in 2:nIter){
    # Sampling regression coefficients
    for(j in 1:p){
