@@ -33,7 +33,7 @@ dW=ifelse(DATA$race=='W',1,0) # a dummy variable for male
  nIter=10000
 
 ## Objects to store samples
- p=ncol(X)
+ p=ncol(X); n=nrow(X)
  B=matrix(nrow=nIter,ncol=p,0)
  varE=rep(NA,nIter)
  SSx=colSums(X^2)
