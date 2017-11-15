@@ -44,16 +44,19 @@ dW=ifelse(DATA$race=='W',1,0) # a dummy variable for male
  b=B[1,]
  varE[1]=var(y)
  
+ resid=y-B[1,1]
+ 
  for(i in 2:nIter){
    # Sampling regression coefficients
    for(j in 1:p){
      C=SSx[j]/varE[i-1]+1/varB
-     yStar=y-X[,-j]%*%b[-j]
+     yStar= resid+X[,j]*b[j]  #y-X[,-j]%*%b[-j]
      rhs=sum(X[,j]*yStar)/varE[i-1]  + b0/varB
      condMean=rhs/C
      condVar=1/C
      b[j]=rnorm(n=1,mean=condMean,sd=sqrt(condVar))
      B[i,j]=b[j]  
+     resid=yStar-X[,j]*b[j]
    }
    # Sampling the error variance
    eHat=y-X%*%b
