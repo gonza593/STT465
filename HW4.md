@@ -12,7 +12,7 @@ A classical paper [Ca sella & George, 1992](http://www.stat.ufl.edu/archived/cas
 ### (1) Post-Gibbs Analyses
 
 
-Using the gout data set fit a linear regression model with sex, age and race as effects and serum urate
+Using the [gout](https://github.com/gdlc/STT465/blob/master/gout.txt) data set fit a linear regression model with sex, age and race as effects and serum urate
 as response. The gibbs sampler for fitting thid model is   available in out GitHub repository (`gibbsMLR.md`). Collect a total of 20,000 samples.
 
    1.1. For each parameter in the model provide a **trace** plot and decide upon burn-in.
