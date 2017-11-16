@@ -60,9 +60,8 @@ gibbsMLR=function(y,X,nIter=10000,varB,verbose=500){
       B[i,j]=b[j]  
       resid=yStar-X[,j]*b[j]
     }
-    # Sampling the error variance
-    eHat=y-X%*%b
-    RSS=sum(eHat^2)
+    # Sampling the error variance  
+    RSS=sum(resid^2)
     DF=n+df0
     S=RSS+S0
     varE[i]=S/rchisq(df=DF,n=1)
