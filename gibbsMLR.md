@@ -36,7 +36,6 @@ gibbsMLR=function(y,X,nIter=10000,varB,verbose=500){
   p=ncol(X); n=nrow(X)
   B=matrix(nrow=nIter,ncol=p,0)
   varE=rep(NA,nIter)
-  SSx=colSums(X^2)
 
  ## Initialize
   B[1,]=0
@@ -47,7 +46,10 @@ gibbsMLR=function(y,X,nIter=10000,varB,verbose=500){
  
  ## Centering
   for(i in 2:ncol(X)){  X[,i]=X[,i]-mean(X[,i]) }
- 
+
+ ## Computing sum x'x for each column
+  SSx=colSums(X^2)
+
   for(i in 2:nIter){
     # Sampling regression coefficients
     for(j in 1:p){
