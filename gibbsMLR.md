@@ -20,7 +20,7 @@ dW=ifelse(DATA$race=='W',1,0) # a dummy variable for male
  y=DATA$serum_urate
 ```
 
-####Gibbs
+#### Gibbs
 
 I wrapped up our Gibbs sampler into a function
 
