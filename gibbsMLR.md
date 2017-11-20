@@ -113,7 +113,7 @@ COR=rep(NA,length(varB))
 BHat=matrix(nrow=ncol(X),ncol=length(varB))
 varE=rep(NA,length(varB))
 
-nIter=500
+nIter=1200
 burnIn=200
 
 for(i in 1:length(varB)){
