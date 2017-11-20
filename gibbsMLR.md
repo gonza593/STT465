@@ -84,3 +84,49 @@ gibbsMLR=function(y,X,nIter=10000,varB,verbose=500){
  head(samples$effects)    # samples for the effects
 
 ```
+
+### Effect of shrinkage on prediction accuracy in high-dimensional regressions
+
+```r
+
+
+library(BGLR)
+data(wheat)
+X=wheat.X #  A matrix with genotypes of 599 lines of wheat (in rows) @ 1279 DNA markers (columns)
+y=wheat.Y[,1] # grain yield of each of the lines
+
+
+X=scale(wheat.X)/sqrt(ncol(X))
+
+set.seed(195021)
+tst=sample(1:599,size=150) # A testing set
+
+XTST=X[tst,];XTST=cbind(1,XTST)
+yTST=y[tst]
+
+XTRN=X[-tst,];XTRN=cbind(1,XTRN)
+yTRN=y[-tst]
+
+varB=c(10000,1000,100,10,5,2,1,.5,.1,.05,.01,.0001,1e-6) # Very large varB=>little shrinkage (in the limit Bayes=ML=OLS)
+
+COR=rep(NA,length(varB))
+BHat=matrix(nrow=ncol(X),ncol=length(varB))
+varE=rep(NA,length(varB))
+
+nIter=500
+burnIn=200
+
+for(i in 1:length(varB)){
+	samples=gibbsMLR(y=yTRN,X=XTRN,varB=varB[i],nIter=nIter,verbose=1e5)
+	
+	bHat=colMeans(samples$effects[-(1:burnIn),])
+	varE[i]=mean(samples$varE[-(1:burnIn)])
+	BHat[,i]=bHat[-1]
+	
+	COR[i]=cor(yTST,XTST%*%bHat)
+	print(COR[i])
+}
+
+plot(COR^2,x=log(varB),type='o')
+
+```
