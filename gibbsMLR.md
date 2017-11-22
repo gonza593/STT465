@@ -154,7 +154,7 @@ for(i in 1:1279){
 	points(x=varB,y=BHat[i,],cex=.1,col=2)
 	lines(x=varB,y=BHat[i,],lwd=.1,col=8)
 }
-
+```
 
 #### Plots
 
