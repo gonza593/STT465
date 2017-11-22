@@ -113,11 +113,11 @@ COR=rep(NA,length(varB))
 BHat=matrix(nrow=ncol(X),ncol=length(varB))
 varE=rep(NA,length(varB))
 
-nIter=1200
-burnIn=200
+nIter=12000
+burnIn=2000
 
 for(i in 1:length(varB)){
-	samples=gibbsMLR(y=yTRN,X=XTRN,varB=varB[i],nIter=nIter,verbose=1e5)
+	samples=gibbsMLR(y=yTRN,X=XTRN,varB=varB[i],nIter=nIter,verbose=100)
 	
 	bHat=colMeans(samples$effects[-(1:burnIn),])
 	varE[i]=mean(samples$varE[-(1:burnIn)])
