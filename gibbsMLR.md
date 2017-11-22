@@ -87,8 +87,17 @@ gibbsMLR=function(y,X,nIter=10000,varB,verbose=500){
 
 ### Effect of shrinkage on prediction accuracy in high-dimensional regressions
 
-```r
+In this example we fit a linear model for wehat yield (y), using 1279 genetic markers (X) as covaraites. Sample size is 599. Therefore, in this problem the number of uknown regression coefficients exceeds sample size. The OLS estimate is not unique and the statistical properties of any of the soultions to OLS that can be obtained using a generalized inverse have very poor statistical properties. However, the Bayesian approach will enable us to get better estimates and even more a model that will have a reasonably good ability to predict grain yield from genetic markers in testing data sets.
 
+
+In this example we split the data set into a training and a testing set, fit a Bayesian model to data in the training set and used the estimated effects to predict grain yield in the testing data set. To examine the role of shrinkage we fit the Bayesian model over a grid of values of the variance of effects, from very large (this gives a relatively un-informative prior and hence estimates that close to OLS solutions) to very small values of the variance (this will render estimates that strongly shrunked towards the prior mean (zero in the example). The example shows how the prior variance of effects can be used to induce shrinkage of estimates and how shrinkage can be used to arrive to models that will have good predictive performance.
+
+
+The code can be run with our Gibbs sampler (the one printed above) or using BGLR. By default I run it with BGLR because the package is optimized and it is considerably faster than the Gibbs sampler that we have been using in class.
+
+
+#### Fitting the models
+```r
 
 library(BGLR)
 data(wheat)
@@ -117,16 +126,52 @@ nIter=12000
 burnIn=2000
 
 for(i in 1:length(varB)){
-	samples=gibbsMLR(y=yTRN,X=XTRN,varB=varB[i],nIter=nIter,verbose=100)
 	
-	bHat=colMeans(samples$effects[-(1:burnIn),])
-	varE[i]=mean(samples$varE[-(1:burnIn)])
-	BHat[,i]=bHat[-1]
+	if(FALSE){ #done with our Gibbs sampler
+		samples=gibbsMLR(y=yTRN,X=XTRN,varB=varB[i],nIter=nIter,verbose=100)
+		bHat=colMeans(samples$effects[-(1:burnIn),])
+		varE[i]=mean(samples$varE[-(1:burnIn)])
+		BHat[,i]=bHat[-1]
+	}else{ # done with BGLR that has a few additional optimizations and parts written in C
+		DF=1e5 
+		fm=BGLR(y=yTRN,ETA=list(list(X=XTRN[,-1],model='BRR',df0=DF,S0=varB[i]*(DF+2))),
+          		nIter=nIter,burnIn=burnIn,verbose=F)
+        BHat[,i]=fm$ETA[[1]]$b
+        varE[i]=fm$varE
+    	print(c(varB[i],fm$ETA[[1]]$varB))    
 	
-	COR[i]=cor(yTST,XTST%*%bHat)
+	}
+	COR[i]=cor(yTST,XTST[,-1]%*%BHat[,i])
 	print(COR[i])
 }
 
-plot(COR^2,x=log(varB),type='o')
+# Examining estimates of effects
+
+plot(numeric()~numeric(),xlab='varB',ylab='Estimated posterior mean',
+     ylim=range(BHat[,1]),xlim=range(varB))
+
+for(i in 1:1279){
+	points(x=varB,y=BHat[i,],cex=.1,col=2)
+	lines(x=varB,y=BHat[i,],lwd=.1,col=8)
+}
+
+
+#### Plots
+
+```r
+#  A plot in the -log scale for varB
+
+
+plot(numeric()~numeric(),xlab='-log(varB)',ylab='Estimated posterior mean'
+	,ylim=range(BHat[,1]),xlim=range(-log(varB)))
+
+for(i in 1:1279){
+	points(x=-log(varB),y=BHat[i,],cex=.1,col=2)
+	lines(x=-log(varB),y=BHat[i,],lwd=.1,col=8)
+}
+
+
+plot(COR,x=log(varB),type='o',col=4)
+
 
 ```
