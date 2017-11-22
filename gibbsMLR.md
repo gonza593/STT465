@@ -107,7 +107,7 @@ yTST=y[tst]
 XTRN=X[-tst,];XTRN=cbind(1,XTRN)
 yTRN=y[-tst]
 
-varB=c(10000,1000,100,10,5,2,1,.5,.1,.05,.01,.0001,1e-6) # Very large varB=>little shrinkage (in the limit Bayes=ML=OLS)
+varB=c(1000,100,10,5,2,1,.5,.1,.05,.01,.0001,1e-6) # Very large varB=>little shrinkage (in the limit Bayes=ML=OLS)
 
 COR=rep(NA,length(varB))
 BHat=matrix(nrow=ncol(X),ncol=length(varB))
