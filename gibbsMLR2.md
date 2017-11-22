@@ -1,4 +1,4 @@
-### We extend gibbsMLR() by addin an step to sample varB.
+### We extend gibbsMLR() by adding an step to sample varB.
 
 ```r
 
