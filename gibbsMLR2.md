@@ -25,7 +25,6 @@ gibbsMLR2=function(y,X,nIter=10000,verbose=500){
   varE[1]=var(y)
   varB[1]=S0b/(df0b+2)
   resid=y-B[1,1]
- print(varB[1])
 
  ## Centering
   for(i in 2:ncol(X)){  X[,i]=X[,i]-mean(X[,i]) }
@@ -63,3 +62,24 @@ gibbsMLR2=function(y,X,nIter=10000,verbose=500){
   out=list(effects=B,varE=varE,varB=varB)
   return(out)
  }
+```
+
+### Use
+
+We use the Gibbs sampler to fit a model to the wheat data set (n=599, p=1279 DNA markers). We compare our results with those obtained with the BGLR package. Note: BGLR is optimized and part implemented in C; therefore, BGLR is much faster.
+
+```r
+ library(BGLR)
+ data(wheat)
+ X=scale(wheat.X) # DNA markers (1279 predictors)
+ X=X/sqrt(ncol(X)) # an additional scaling to have varB in the same scale as that of var(y)
+ y=wheat.Y[,1]
+ 
+ ## BGLR
+ fm=BGLR(y=y,ETA=list(list(X=X,model='BRR')),nIter=12000,burnIn=2000,verbose=F)
+ 
+ ## The sampler developed in class
+ samples=gibbsMLR2(y=y,X=cbind(1,X),verbose=100,nIter=12000)
+ 
+
+```
