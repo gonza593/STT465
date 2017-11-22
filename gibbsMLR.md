@@ -80,8 +80,16 @@ gibbsMLR=function(y,X,nIter=10000,varB,verbose=500){
 **Use:**
 
 ```r
- samples=gibbsMLR(y,X,nIter=100,varB=10000)
+ samples=gibbsMLR(y,X,nIter=10000,varB=1000) #large varB should give estimates close to OLS
  head(samples$varE) # samples for the error variance
  head(samples$effects)    # samples for the effects
+ 
+ lm(y~X-1) # OLS
+ colMeans(samples$effects[-(1:1000),]) # our estimates are very similar to OLS, except for the intercept 
+                                       # because internally we centered all the columns of X, except the 1st one.
+                                       
+ lm(y~scale(X,center=T,scale=F))
+ 
+ 
 
 ```
