@@ -52,7 +52,10 @@ In a logistic regression the succes probability ot each subject is modeled using
   summary(fm)
 
 ```
-**A function that evaluates the log-likelihood,function.
+
+
+**A function that evaluates the log-likelihood,function.**
+
 
 ```r
   negLogLik=function(y,X,b){
