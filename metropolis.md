@@ -1,8 +1,9 @@
 
+
 ### Metropolis Algorithm: a very simple example
 
 
-The example below shows how the Metropolis algorithm can be used to dra samples from a target distribution (`p()`) generating candidates 
+Here we show how the Metropolis algorithm can be used to dra samples from a target distribution (`p()`) generating candidates 
 from another distribution (q`(x)`). For the metropolis algorithm `q(x)` must be symmetric and have the same support than that of `p(x)`.
 
 In the example below `x~N(0,1)`; we draw `n` samples from this distribution and use these samples for comparison with samples drawn
@@ -44,18 +45,21 @@ In a logistic regression the succes probability ot each subject is modeled using
 **Fitting a Logistic Regression using glm**
 
 ```r	
-
+# Data
   DATA=read.table('~/Desktop/gout.txt',header=F)
   colnames(DATA)=c('sex','race','age','serum_urate','gout')
-  DATA$fout=ifelse(DATA$gout>0,1,0)
+  DATA$gout=ifelse(DATA$gout=="Y",1,0)
+
+# Incidence matrix for effects
+  X=as.matrix(model.matrix(~sex+race+age+serum_urate,data=DATA))[,-1]
+  X=scale(X,center=T,scale=F)
+  
+# glmm fit
   fm=glm(gout~sex+age+serum_urate,family=binomial(link=probit),data=DATA)
   summary(fm)
 
 ```
-
-
-**A function that evaluates the log-likelihood,function.**
-
+**A function that evaluates the log-likelihood,function.
 
 ```r
   negLogLik=function(y,X,b){
@@ -63,19 +67,23 @@ In a logistic regression the succes probability ot each subject is modeled using
   	theta=exp(ETA)/(1+exp(ETA))
   	
   	logLik<-ifelse(y==1,log(theta),log(1-theta))
-  	return(-sum(m(llogLike)))
+  	return(-sum(logLik))
   }
+```  
   
-```
-
 **Fitting a logistic regression using `optim()`.**
 
 ```r
 
-  X=as.matrix(model.matrix(~sex+race+age+serum_urate,data=DATA))[,-1]
-  X=scale(X,cneter=T,scale=F)
-  X=cind(1,X)
-  fm2=optim(X=X,y=y,fn=negLogLik,par=log(mean(y)/man(y)))
+ 
+  X=cbind(1,X)
+  yBar=mean(DATA$gout)
+  init=c(log(yBar/(1-yBar)),rep(0,ncol(X)-1))  
   
+  fm2=optim(X=X,y=DATA$gout,fn=negLogLik,par=init)
+
   
 ```
+
+
+
