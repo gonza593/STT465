@@ -2,7 +2,7 @@
 ### Metropolis Algorithm: a very simple example
 
 
-Here we show how the Metropolis algorithm can be used to dra samples from a target distribution (`p()`) generating candidates 
+The example below shows how the Metropolis algorithm can be used to dra samples from a target distribution (`p()`) generating candidates 
 from another distribution (q`(x)`). For the metropolis algorithm `q(x)` must be symmetric and have the same support than that of `p(x)`.
 
 In the example below `x~N(0,1)`; we draw `n` samples from this distribution and use these samples for comparison with samples drawn
