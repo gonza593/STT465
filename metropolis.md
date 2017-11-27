@@ -3,7 +3,7 @@
 ### Metropolis Algorithm: a very simple example
 
 
-Here we show how the Metropolis algorithm can be used to dra samples from a target distribution (`p()`) generating candidates 
+Here we show how the Metropolis algorithm can be used to draw samples from a target distribution (`p()`) generating candidates 
 from another distribution (q`(x)`). For the metropolis algorithm `q(x)` must be symmetric and have the same support than that of `p(x)`.
 
 In the example below `x~N(0,1)`; we draw `n` samples from this distribution and use these samples for comparison with samples drawn
@@ -55,7 +55,7 @@ In a logistic regression the succes probability ot each subject is modeled using
   X=scale(X,center=T,scale=F)
   
 # glmm fit
-  fm=glm(gout~sex+age+serum_urate,family=binomial(link=probit),data=DATA)
+  fm=glm(gout~X,family=binomial(link=logit),data=DATA)
   summary(fm)
 
 ```
@@ -75,13 +75,12 @@ In a logistic regression the succes probability ot each subject is modeled using
 
 ```r
 
- 
   X=cbind(1,X)
   yBar=mean(DATA$gout)
   init=c(log(yBar/(1-yBar)),rep(0,ncol(X)-1))  
   
   fm2=optim(X=X,y=DATA$gout,fn=negLogLik,par=init)
-
+  cbind(coef(fm),fm2$par)
   
 ```
 
