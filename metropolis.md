@@ -62,8 +62,9 @@ In a logistic regression the succes probability ot each subject is modeled using
   	logLik<-ifelse(y==1,log(theta),log(1-theta))
   	return(-sum(m(llogLike)))
   }
-**Fitting a logistic regression using `optim()`.
-```
+**Fitting a logistic regression using `optim()`.**
+
+```r
 
   X=as.matrix(model.matrix(~sex+race+age+serum_urate,data=DATA))[,-1]
   X=scale(X,cneter=T,scale=F)
