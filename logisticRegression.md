@@ -61,10 +61,84 @@ summary(fm)
   iniInt=log(mean(DATA$gout)/(1-mean(DATA$gout)))
  
   fm2=optim(fn=negLogLik,y=DATA$gout,X=cbind(1,Z),par=c(iniInt,rep(0,ncol(Z)))
-                                                ,control=list(maxit=10000,reltol=1e-8)) # these parameters control the 
-                                                                                        # algorithm try help(optim) 
+                                                ,control=list(maxit=10000,reltol=1e-8)) 
+  # `control` is used to define convergence and iteration parameters, help(optim) 
+  
   fm2$convergence # 0 means it converged
   cbind(fm$coef,fm2$par)
 
 ```
 
+
+### Bayesian Analysis
+
+The following code implements the Metropolis algorithm we discuss in class. The Likelihood si bernoully sith subject-specific success probability (see likelihood above). The prior is IID normal with mean b0 and variance varB, that is `bj~N(b0,varB)`. Samples are drawn using a Metropolis algorithm (Chapter 8 of the book) with candidates generated using a normal distribution centered at the current sample of effects and variance `V`, a user-specified parameter. The code includes two functions, the first one evlautes the posterior distribution and is used to evaluate the acceptance ratio, the second function is the sampler.
+
+
+
+```r
+   # A function to evaluate the log of the posterior density
+   logP=function(y,X,b,b0,varB){
+     Xb=X%*%b
+     theta=exp(Xb)/(1+exp(Xb))
+     logLik=sum( dbinom(x=y,p=theta,size=1,log=T)  )
+     logPrior=sum(  dnorm(x=b,sd=sqrt(varB),mean=b0,log=T))
+     return(logLik+logPrior)
+   }
+
+
+logisticRegressionBayes=function(y,X,nIter=12000,V=.02,varB=rep(10000,ncol(X)),b0=rep(0,ncol(X))){
+ 
+  ####### Arguments #######################
+  # y  a vector with 0/1 values
+  # X  incidence matrix fo effects
+  # b0,varB, the prior mean and prior variance bj~N(b0[j],varB[j])
+  # V the variance of the normal distribution used to generate candidates~N(b[i-1],V)
+  # nIter: number of iterations of the sampler
+  # Details: generates samples from the posterior distribution of a logistic regression using a Metropolis algorithm
+  #########################################
+ 
+  # A matrix to stopre samples
+   p=ncol(X)
+   B=matrix(nrow=nIter,ncol=p)
+  # A vector to trace acceptancve
+   accept=rep(NA,nIter)
+   accept[1]=TRUE 
+   
+  # Initialize
+   B[1,]=0
+   B[1,1]=log(mean(y)/(1-mean(y)))
+   b=B[1,]
+  for(i in 2:nIter){
+   
+    candidate=rnorm(mean=b,sd=sqrt(V),n=p)
+ 
+    logP_current=logP(y,X,b0=b0,varB=varB,b=b)
+    logP_candidate=logP(y,X,b0=b0,varB=varB,b=candidate)
+   
+    r=min(1,exp(logP_candidate-logP_current))
+    delta=rbinom(n=1,size=1,p=r)
+   
+    accept[i]=delta
+   
+    if(delta==1){ b=candidate }
+    B[i,]=b
+    print(paste0(i," accept?=",delta==1))
+ 
+  }
+ 
+  return(B)
+}
+ 
+
+```
+
+**Use**
+
+
+```r
+  samples=logisticRegressionBayes(y=y,X=cbind(1,Z))
+  
+  fm2=optim(fn=negLogLik,y=DATA$gout,X=cbind(1,Z),par=c(iniInt,rep(0,ncol(Z)))
+                                                ,control=list(maxit=10000,reltol=1e-8)) 
+```
