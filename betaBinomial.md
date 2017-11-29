@@ -39,7 +39,7 @@ number of successes in the sample) with sample size being varied from 10 to 100.
   	PD[,i]=dbeta(x=theta,shape1=xBar*N[i]+shape1,shape2=(1-xBar)*N[i]+shape2)
   }
 
- # Saling to get nice plots
+ # Scaling to get nice plots
    K=max(c(as.vector(PD),as.vector(L)))
    for(i in 1:length(N)){
    	  PD[,i]=PD[,i]/K
