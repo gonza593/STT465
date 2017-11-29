@@ -49,7 +49,8 @@ Use the Gibbs sampler developed in class to fit the logistic regression. Collect
 | M    |  B | 65 |
 
 
-3. Collect samples for the model of questions 1 adn 2 using `V=.4`, `V=.2`, `V=.05` and `V=.001`.
+
+3. Collect samples for the model of question 2 using `V=.4`, `V=.2`, `V=.05` and `V=.001`.
 
 3.1. Report the average acceptance rate and the lag-100 correlation and effective number of samples for the effect of age.
 
