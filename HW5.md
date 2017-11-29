@@ -9,7 +9,7 @@
   
  **(1) Maximum Likelihood Estimaton and Interpretation of Parameter Estimates**
  
-Using the [gout]() data set Fit a logistic regression with gout as response, sex, age, race and serum urate as predictors using the `glm()` function.
+Using the [gout]() data set Fit a logistic regression with `gout` as response, `sex`, `race` and `age` as predictors using the `glm()` function.
 
 
 1.1. Report parameter estimates, SEs and p-values
@@ -18,7 +18,7 @@ Using the [gout]() data set Fit a logistic regression with gout as response, sex
 1.2. Summarize your findings
 
 
-1.3. Using the parameter estimates report the estimated probability of developing gout fo reach of the following cases
+1.3. What is the estimated probability of developing gout for a male, white, 65 years old person.
 
 
 
@@ -27,18 +27,17 @@ Using the [gout]() data set Fit a logistic regression with gout as response, sex
 Use the Gibbs sampler developed in class to fit the logistic regression. Collect 22,000 samples, discard the frist 2,000 for burn in.
 
 
-2.1. Report parameter estimates, posterior standard deviation and 95% posterior credibility regions
+2.1. Report parameter estimates, posterior standard deviation and 95% posterior credibility regions for each of the regression coefficients.
 
 
 
-2.2. Report for each coefficient the trace plot, and a table with numbrer of effective samples, and MC estandard error.
+2.2. Report, for each coefficient, the trace plot and estimates of: numbrer of effective samples and MC estandard error.
 
 
-2.3. Summarize your finding
+2.3. Summarize your findings
 
 
-2.4. Use the samples collected to estimate the posterior distribution of the probability of developing gout for e each of these cases
-(report one plot with the estimated posterior desnity of each of these probabilities, add for each density vertical lines for 95% credibility regions).
+2.4. Use the samples collected to estimate the posterior distribution of the probability of developing gout for each of these cases listed below (report one plot with the estimated posterior desnity of each of these probabilities, add for each density vertical lines for 95% credibility regions).
 
 
 | Sex    |  Race | Age |
@@ -52,5 +51,12 @@ Use the Gibbs sampler developed in class to fit the logistic regression. Collect
 | M    |  B | 55 |
 | M    |  B | 65 |
 
+3. Collect samples for th emodel of questions 1 adn 2 using `V=.1`, `V=.01' and `V=.001`.
 
+3.1. For each of the three runs report: (i) the average acceptance rate and (ii) an auto-correlation plot for the effect of age.
+
+3.2. Estimate effective sample size for the effect of age for each of the three runs
+
+
+3.3. What value of V would you recommend? Why?
 
