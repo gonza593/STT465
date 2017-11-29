@@ -38,13 +38,19 @@ Use the Gibbs sampler developed in class to fit the logistic regression. Collect
 
 
 2.4. Use the samples collected to estimate the posterior distribution of the probability of developing gout for e each of these cases
-(report one plot with the estimated posterior desnity of each of these probabilities).
+(report one plot with the estimated posterior desnity of each of these probabilities, add for each density vertical lines for 95% credibility regions).
 
 
-| Sex    |  Race | Age |  Serum Urate |
-|--------|-------|-----|--------------|
-| Sex    |  Race | Age |  Serum Urate |
-
+| Sex    |  Race | Age |
+|--------|-------|-----|
+| F   |  W | 55 |
+| F    |  W | 65 |
+| F    |  B | 55 |
+| F    |  B | 65 |
+| M   |  W | 55 |
+| M    |  W | 65 |
+| M    |  B | 55 |
+| M    |  B | 65 |
 
 
 
