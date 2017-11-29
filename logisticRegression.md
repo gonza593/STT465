@@ -97,10 +97,16 @@ logisticRegressionBayes=function(y,X,nIter=12000,V=.02,varB=rep(10000,ncol(X)),b
   # nIter: number of iterations of the sampler
   # Details: generates samples from the posterior distribution of a logistic regression using a Metropolis algorithm
   #########################################
- 
-  # A matrix to stopre samples
+    
+  # A matrix to store samples
    p=ncol(X)
    B=matrix(nrow=nIter,ncol=p)
+ 
+   # Centering predictors
+   meanX=colMeans(X)
+   for(i in 2:p){ X[,i]=(X[,i]-meanX[i]) }
+
+ 
   # A vector to trace acceptancve
    accept=rep(NA,nIter)
    accept[1]=TRUE 
@@ -126,6 +132,8 @@ logisticRegressionBayes=function(y,X,nIter=12000,V=.02,varB=rep(10000,ncol(X)),b
     print(paste0(i," accept?=",delta==1))
  
   }
+  
+  B[,1]=B[,1]-B[,-1]%*%meanX[-1] # absorbing means on the intercept
  
   return(list(B=B,accept=accept))
 }
@@ -137,7 +145,7 @@ logisticRegressionBayes=function(y,X,nIter=12000,V=.02,varB=rep(10000,ncol(X)),b
 
 
 ```r
-  samples=logisticRegressionBayes(y=DATA$gout,X=cbind(1,Z),nIter=20000)
+  samples=logisticRegressionBayes(y=DATA$gout,X=model.matrix(~sex+race+age,data=DATA),nIter=20000)
   
   cbind(fm$coef,colMeans(samples$B[-(1:1000),]))
 ```
