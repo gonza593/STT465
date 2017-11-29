@@ -26,12 +26,13 @@ Using the [gout]() data set Fit a logistic regression with `gout` as response, `
 
 Use the Gibbs sampler developed in class to fit the logistic regression. Collect 55,000 samples, discard the frist 5,000 for burn in.
 
+**NOTE:** With the sampler available in the GitHub repository you don't need to center covariates, centering is done internally in the sampler.
 
 2.1. Report parameter estimates, posterior standard deviation and 95% posterior credibility regions for each of the regression coefficients.
 
 
 
-2.2. Report, for each coefficient, the trace plot and estimates of: numbrer of effective samples and MC estandard error.
+2.2. Report, for each coefficient, the trace plot and estimates of thenumbrer of effective samples and the MC standard error.
 
 2.3. Use the samples collected to estimate the posterior distribution of the probability of developing gout for each of these cases listed below (report one plot with the estimated posterior desnity of each of these probabilities, add for each density vertical lines for 95% credibility regions).
 
@@ -46,6 +47,7 @@ Use the Gibbs sampler developed in class to fit the logistic regression. Collect
 | M    |  W | 65 |
 | M    |  B | 55 |
 | M    |  B | 65 |
+
 
 3. Collect samples for the model of questions 1 adn 2 using `V=.4`, `V=.2`, `V=.05` and `V=.001`.
 
