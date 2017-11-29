@@ -24,7 +24,7 @@ Using the [gout]() data set Fit a logistic regression with `gout` as response, `
 
 **(2) Bayesian Analysis**
 
-Use the Gibbs sampler developed in class to fit the logistic regression. Collect 22,000 samples, discard the frist 2,000 for burn in.
+Use the Gibbs sampler developed in class to fit the logistic regression. Collect 55,000 samples, discard the frist 5,000 for burn in.
 
 
 2.1. Report parameter estimates, posterior standard deviation and 95% posterior credibility regions for each of the regression coefficients.
@@ -33,11 +33,7 @@ Use the Gibbs sampler developed in class to fit the logistic regression. Collect
 
 2.2. Report, for each coefficient, the trace plot and estimates of: numbrer of effective samples and MC estandard error.
 
-
-2.3. Summarize your findings
-
-
-2.4. Use the samples collected to estimate the posterior distribution of the probability of developing gout for each of these cases listed below (report one plot with the estimated posterior desnity of each of these probabilities, add for each density vertical lines for 95% credibility regions).
+2.3. Use the samples collected to estimate the posterior distribution of the probability of developing gout for each of these cases listed below (report one plot with the estimated posterior desnity of each of these probabilities, add for each density vertical lines for 95% credibility regions).
 
 
 | Sex    |  Race | Age |
@@ -51,12 +47,9 @@ Use the Gibbs sampler developed in class to fit the logistic regression. Collect
 | M    |  B | 55 |
 | M    |  B | 65 |
 
-3. Collect samples for th emodel of questions 1 adn 2 using `V=.1`, `V=.01' and `V=.001`.
+3. Collect samples for the model of questions 1 adn 2 using `V=.4`, `V=.2`, `V=.05` and `V=.001`.
 
-3.1. For each of the three runs report: (i) the average acceptance rate and (ii) an auto-correlation plot for the effect of age.
-
-3.2. Estimate effective sample size for the effect of age for each of the three runs
-
+3.1. Report the average acceptance rate and the lag-100 correlation and effective number of samples for the effect of age.
 
 3.3. What value of V would you recommend? Why?
 
