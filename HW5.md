@@ -43,9 +43,7 @@ Use the Gibbs sampler developed in class to fit the logistic regression. Collect
 
 |----------|----------|----------|----------|
 | Sex    |  Race | Age |  Serum Urate |
-|----------|----------|----------|----------|
 | Sex    |  Race | Age |  Serum Urate |
-|----------|----------|----------|----------|
 
 
 
