@@ -137,8 +137,9 @@ logisticRegressionBayes=function(y,X,nIter=12000,V=.02,varB=rep(10000,ncol(X)),b
 
 
 ```r
-  samples=logisticRegressionBayes(y=y,X=cbind(1,Z))
+  samples=logisticRegressionBayes(y=DATA$gout,X=cbind(1,Z),nIter=20000)
   
-  fm2=optim(fn=negLogLik,y=DATA$gout,X=cbind(1,Z),par=c(iniInt,rep(0,ncol(Z)))
-                                                ,control=list(maxit=10000,reltol=1e-8)) 
+  cbind(fm$coef,colMeans(samples[-(1:1000),]))
 ```
+
+**Suggestion:** (i) Try reducing the prior variance and changing the prior mean, (ii) Inspect the trace plot for different coefficients, (iii) Change `V` and assess the impact on the mixing of the algorithm, (iv) Estimate auto-correlations, number of independent samples, monte carlo error, etc.
