@@ -41,8 +41,9 @@ Use the Gibbs sampler developed in class to fit the logistic regression. Collect
 (report one plot with the estimated posterior desnity of each of these probabilities).
 
 
-|----------|----------|----------|----------|
 | Sex    |  Race | Age |  Serum Urate |
+
+|----------|----------|----------|----------|
 | Sex    |  Race | Age |  Serum Urate |
 
 
