@@ -17,3 +17,5 @@
   - **[HW1](https://github.com/gdlc/STT465/blob/master/HW1_STT465.pdf)**  
   - **HW 2**: Problems 3.3, 3.7 and 3.9 from the book (due  Wednesday, Oct 11th in class).
   - [**HW 3**](https://github.com/gdlc/STT465/blob/master/HW_OLS_bonus.md)
+  - [**HW4**](https://github.com/gdlc/STT465/blob/master/HW4.md)
+  - [**HW5**](https://github.com/gdlc/STT465/blob/master/HW5.md)
