@@ -127,7 +127,7 @@ logisticRegressionBayes=function(y,X,nIter=12000,V=.02,varB=rep(10000,ncol(X)),b
  
   }
  
-  return(B)
+  return(list(B=B,accept=accept))
 }
  
 
@@ -139,7 +139,7 @@ logisticRegressionBayes=function(y,X,nIter=12000,V=.02,varB=rep(10000,ncol(X)),b
 ```r
   samples=logisticRegressionBayes(y=DATA$gout,X=cbind(1,Z),nIter=20000)
   
-  cbind(fm$coef,colMeans(samples[-(1:1000),]))
+  cbind(fm$coef,colMeans(samples$B[-(1:1000),]))
 ```
 
 **Suggestion:** (i) Try reducing the prior variance and changing the prior mean, (ii) Inspect the trace plot for different coefficients, (iii) Change `V` and assess the impact on the mixing of the algorithm, (iv) Estimate auto-correlations, number of independent samples, monte carlo error, etc.
