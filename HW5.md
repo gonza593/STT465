@@ -24,7 +24,7 @@ Using the [gout]() data set fit a logistic regression with `gout` as response, `
 
 **(2) Bayesian Analysis**
 
-Use the Gibbs sampler developed in class to fit the logistic regression. Collect 55,000 samples, discard the frist 5,000 for burn in.
+Use the Metropolis sampler developed in class ([logisticRegressionBayes](https://github.com/gdlc/STT465/blob/master/logisticRegression.md)) to fit the logistic regression. Collect 55,000 samples, discard the frist 5,000 for burn in.
 
 **NOTE:** With the sampler available in the GitHub repository you don't need to center covariates, centering is done internally in the sampler.
 
