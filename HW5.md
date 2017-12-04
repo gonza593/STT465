@@ -9,7 +9,7 @@
   
  **(1) Maximum Likelihood Estimaton and Interpretation of Parameter Estimates**
  
-Using the [gout]() data set Fit a logistic regression with `gout` as response, `sex`, `race` and `age` as predictors using the `glm()` function.
+Using the [gout]() data set fit a logistic regression with `gout` as response, `sex`, `race` and `age` as predictors using the `glm()` function.
 
 
 1.1. Report parameter estimates, SEs and p-values
@@ -18,7 +18,7 @@ Using the [gout]() data set Fit a logistic regression with `gout` as response, `
 1.2. Summarize your findings
 
 
-1.3. What is the estimated probability of developing gout for a male, white, 65 years old person.
+1.3. What is the estimated probability of developing gout for a male, white, 65 years old person?
 
 
 
