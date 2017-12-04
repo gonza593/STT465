@@ -1,4 +1,4 @@
-## Bayesian Analysis of the Logistic Regression
+## Likelihood and Bayesian Analysis of the Logistic Regression
 
 
 Logistic regression is used to estimate the effects of a set of predictors (e.g., sex, age) on the success probability of a binary outcome (Yi). This is done
@@ -25,7 +25,8 @@ by linking the success probability, P(Yi=1|xi,b), with a linear predictor using 
  
  ```
 
-**Fitting a logistic regression via maximum likelihood using `glm`**
+
+### [Fitting a logistic regression via maximum likelihood using `glm`](#bayes)
 
 ```r
 rm(list=ls())
@@ -69,8 +70,7 @@ summary(fm)
 
 ```
 
-
-### Bayesian Analysis
+### [Bayesian Analysis](#bayes)
 
 The following code implements the Metropolis algorithm we discuss in class. The Likelihood si bernoully sith subject-specific success probability (see likelihood above). The prior is IID normal with mean b0 and variance varB, that is `bj~N(b0,varB)`. Samples are drawn using a Metropolis algorithm (Chapter 8 of the book) with candidates generated using a normal distribution centered at the current sample of effects and variance `V`, a user-specified parameter. The code includes two functions, the first one evlautes the posterior distribution and is used to evaluate the acceptance ratio, the second function is the sampler.
 
