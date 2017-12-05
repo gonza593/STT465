@@ -90,7 +90,7 @@ The following code implements the Metropolis algorithm we discuss in class. The 
    }
 
 
-logisticRegressionBayes=function(y,X,nIter=12000,V=.02,varB=rep(10000,ncol(X)),b0=rep(0,ncol(X))){
+logisticRegressionBayes=function(y,X,nIter=70000,V=.02,varB=rep(10000,ncol(X)),b0=rep(0,ncol(X))){
  
   ####### Arguments #######################
   # y  a vector with 0/1 values
@@ -148,9 +148,11 @@ logisticRegressionBayes=function(y,X,nIter=12000,V=.02,varB=rep(10000,ncol(X)),b
 
 
 ```r
-  samples=logisticRegressionBayes(y=DATA$gout,X=model.matrix(~sex+race+age,data=DATA),nIter=20000)
-  
+  fm=glm(gout~sex+race+age,data=DATA,family='binomial')
+  samples=logisticRegressionBayes(y=DATA$gout,X=model.matrix(~sex+race+age,data=DATA),nIter=50000)
   cbind(fm$coef,colMeans(samples$B[-(1:1000),]))
+  
+  
 ```
 
 **Suggestion:** (i) Try reducing the prior variance and changing the prior mean, (ii) Inspect the trace plot for different coefficients, (iii) Change `V` and assess the impact on the mixing of the algorithm, (iv) Estimate auto-correlations, number of independent samples, monte carlo error, etc.
