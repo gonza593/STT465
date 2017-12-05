@@ -104,6 +104,7 @@ logisticRegressionBayes=function(y,X,nIter=70000,V=.02,varB=rep(10000,ncol(X)),b
   # A matrix to store samples
    p=ncol(X)
    B=matrix(nrow=nIter,ncol=p)
+   colnames(B)=colnames(X)
  
    # Centering predictors
    meanX=colMeans(X)
