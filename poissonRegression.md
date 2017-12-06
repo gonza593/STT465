@@ -76,7 +76,7 @@ negLogLikPoisson<-function(y,X,b){
 **Sampler**
 
 ```r
- for(i in 1:nIter){
+ for(i in 2:nIter){
  	
  	candidate=rnorm(n=p,mean=current,sd=sqrt(V))
  	
