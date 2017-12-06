@@ -1,20 +1,27 @@
-DATA=read.table('~/Desktop/crab.txt',header=T)
-DATA$color=factor(DATA$color)
-DATA$spine=factor(DATA$spine)
+# Poisson Regression: Likelihood and Bayesian Analyses
 
+### Loading the data into R
+
+```r
+ DATA=read.table('~/Desktop/crab.txt',header=T)
+ DATA$color=factor(DATA$color)
+ DATA$spine=factor(DATA$spine)
+```
 
 ### Maximum Likelihood estimation using glm
+```r
  fm0=glm(nSatellites~color+spine+width,family=poisson(link=log),data=DATA)
- 
+```
  
 ## A function to evaluate the negative log-likelihood
- negLogLikPoisson<-function(y,X,b){
+```r
+negLogLikPoisson<-function(y,X,b){
  	eta<-X%*%b
  	lambda=exp(eta)
  	logLik=dpois(x=y,lambda=lambda,log=T)
  	return(-sum(logLik))
  }
- 
+```
 
 ## Fitting the model using `optim`
 ```r
