@@ -1,7 +1,7 @@
 # STT 465: Bayesian Statistical Methods, Fall 2017
 
 
-**Instructor**: Gustavo de los Campos [Epidemiology & Biostatistics](), [Statistics & Probability]() & [IQ - Institute for Quantitative Health Science and Engineering]().
+**Instructor**: Gustavo de los Campos ( [EPI-BST](http://www.epi.msu.edu/), [STT](https://stt.natsci.msu.edu/) & [IQ](https://iq.msu.edu/) ).
 
 **Contact**: gustavoc@msu.edu  +1(517)884-7607
 
@@ -15,6 +15,6 @@
 
 **Textbook (required)**: A First Course in Bayesian Statistical Methods, Peter D. Hoff, Springer.
 
-**[Syllabus]()**
+**[Syllabus](https://github.com/gdlc/STT465/blob/master/syllabus.pdf)**
 
-**[Tentative Schedule]()**
+**[Tentative Schedule](https://github.com/gdlc/STT465/blob/master/schedule.pdf)**
