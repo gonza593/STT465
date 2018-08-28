@@ -15,6 +15,6 @@
 
 **Textbook (required)**: A First Course in Bayesian Statistical Methods, Peter D. Hoff, Springer.
 
-**[Syllabus](https://github.com/gdlc/STT465/blob/master/syllabus.pdf)**
+**[Syllabus](https://github.com/gdlc/STT465/blob/master/Syllabus.pdf)**
 
 **[Tentative Schedule](https://github.com/gdlc/STT465/blob/master/TentativeSchedule.pdf)**
