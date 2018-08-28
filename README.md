@@ -17,4 +17,4 @@
 
 **[Syllabus](https://github.com/gdlc/STT465/blob/master/syllabus.pdf)**
 
-**[Tentative Schedule](https://github.com/gdlc/STT465/blob/master/schedule.pdf)**
+**[Tentative Schedule](https://github.com/gdlc/STT465/blob/master/TentativeSchedule.pdf)**
