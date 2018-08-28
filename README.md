@@ -1,21 +1,16 @@
 # STT 465: Bayesian Statistical Methods, Fall 2017
 
 
-**Instructor**: Gustavo de los Campos, 909 Fee Road, Room B637
+**Instructor**: Gustavo de los Campos [Epidemiology & Biostatistics](), [Statistics & Probability]() & [IQ - Institute for Quantitative Health Science and Engineering]().
 
-**Email**: gustavoc@msu.edu
+**Contact**: gustavoc@msu.edu  +1(517)884-7607
 
-**Time/Place**: MW 10:20am - 11:40am A120 Wells Hall (WH)  
+**Office**:  775 Woodlot Dr. Office 1311, MI 48824
 
-**Website**:  https://github.com/gdlc/STT465 
+**Time/Place**: MWF 10:20am - 11:10am A222 Wells Hall
 
-**Office Hours**: MW 9:00am-10:00 am Wells Hall (C 404)
+**Course Website**:  https://github.com/gdlc/STT465 
+
+**Office Hours**: TBA
 
 **Textbook (required)**: A First Course in Bayesian Statistical Methods, Peter D. Hoff, Springer.
-
-**Homework**:
-  - **[HW1](https://github.com/gdlc/STT465/blob/master/HW1_STT465.pdf)**  
-  - **HW 2**: Problems 3.3, 3.7 and 3.9 from the book (due  Wednesday, Oct 11th in class).
-  - [**HW 3**](https://github.com/gdlc/STT465/blob/master/HW_OLS_bonus.md)
-  - [**HW4**](https://github.com/gdlc/STT465/blob/master/HW4.md)
-  - [**HW5**](https://github.com/gdlc/STT465/blob/master/HW5.md)
