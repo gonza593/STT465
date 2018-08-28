@@ -14,3 +14,6 @@
 **Office Hours**: TBA
 
 **Textbook (required)**: A First Course in Bayesian Statistical Methods, Peter D. Hoff, Springer.
+
+**[Syllabus]()**
+**[Tentative Schedule]()**
