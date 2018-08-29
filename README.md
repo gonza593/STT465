@@ -23,5 +23,5 @@
 
    - **[Statistical Inference](https://github.com/gdlc/STT465/blob/master/intro.md)**
    - **[Review of Probability]()**
-   - **[Introduction to R](https://github.com/QuantGen/RIntro)** [Covery by Marco Lopez-Cruz].
+   - **[Introduction to R](https://github.com/QuantGen/RIntro)** [Covered by Marco Lopez-Cruz].
    - **[Beta-Binomial Model](betaBinomial.md)**
