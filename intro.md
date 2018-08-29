@@ -14,7 +14,7 @@
             * Some problems with Frequentist inference
         
         - The Bayesian (Laplace?) Paradigm
-              - [A bit of history](https://projecteuclid.org/download/pdf_1/euclid.ba/1340371071)
-              - Beliefs & Probability (Chapter 1).
-              - Rules of Probability
+            * [A bit of history](https://projecteuclid.org/download/pdf_1/euclid.ba/1340371071)
+            * Beliefs & Probability (Chapter 1).
+            * Rules of Probability
                   
