@@ -26,4 +26,32 @@
   - Independence P(X,Y)=P(X)P(Y)
   - Conditional Independence   P(X,Y|Z)=P(X|Z)p(Y|Z)
       
+      
+ Consider the following joint distribution of X, Y and Z.
+ 
+ **P(Z=1)=0.3
+ 
+ 
+ **P(X,Y|Z=0)**
+ 
+ |     | Y=1| Y=2 | P(X|Z=0) |
+|-----|----|----|----|
+| X=1 | 0.1 | 0.1 | ? |
+| X=2| 0.4 | 0.4 | ? |
+| P(Y|Z=0) | ? | ? |
+ 
+ 
+ **P(X,Y|Z=1)**
+ 
+|     | Y=1| Y=2 | P(X|Z=1) |
+|-----|----|----|----|
+| X=1 | 0.12 | 0.28 | ? |
+| X=2| 0.18 | 0.42 | ? |
+| P(Y|Z=1) | ? | ? | 
+
+(i) Find the marginal probabilities of X and Y given Z.
+(ii) Are X and Y conditionally independent?
+(iii) Find P(X,Y) (marginal joint probability)
+(iv) Are X and Y independent?
+ 
 [Main](https://github.com/gdlc/STT465/blob/master/README.md)  
