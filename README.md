@@ -21,7 +21,7 @@
 
 ## Topics
 
-   - **[Statistical Inference](https://github.com/gdlc/STT465/blob/master/intro.md)**
-   - **[Review of Probability]()**
+   - **[Statistical Inference (Why? and How?)](https://github.com/gdlc/STT465/blob/master/intro.md)**
+   - **[Review of Probability & Bayes Theorem](https://github.com/gdlc/STT465/edit/master/probability.md)**
    - **[Introduction to R](https://github.com/QuantGen/RIntro)** [Covered by Marco Lopez-Cruz].
    - **[Beta-Binomial Model](betaBinomial.md)**
