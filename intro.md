@@ -20,4 +20,4 @@
       
       
       
-[Main](https://github.com/gdlc/STT465/blob/master/README.md)                       [Probability & Bayes Theorem](https://github.com/gdlc/STT465/blob/master/PROBABILITY.md)
+[Main](https://github.com/gdlc/STT465/blob/master/README.md)  <space><space> [Probability & Bayes Theorem](https://github.com/gdlc/STT465/blob/master/PROBABILITY.md)
