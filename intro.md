@@ -1,20 +1,20 @@
-## List of topics I'll cover in the first two lectures
+## An Overview of Statistical Inference: Why? and How?
 
 
-   1. Logistics of the course
-   
-   2. Statistical Inference
+   1. Statistical Inference
         - Inference & Prediction
         - Why we need Statistics at all?
-        - The Frequentist paradigm
-            
+   
+   2. The Frequentist paradigm
+          
             * Population/Sample/Estimator/Sampling distribution
             * Example: inference on the population mean.
             * [Simualtion example](samplingDistribution.md)
+            * Important Frequentist properites of estimators: Bias, Variance, Mean-Squared Error.
             * Some problems with Frequentist inference
         
-        - The Bayesian (Laplace?) Paradigm
+    3. The Bayesian (Laplace?) Paradigm
             * [A bit of history](https://projecteuclid.org/download/pdf_1/euclid.ba/1340371071)
-            * Beliefs & Probability (Chapter 1).
-            * Rules of Probability
+            * Beliefs & Probability (Chapter 2).
+           
                   
