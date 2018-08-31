@@ -18,5 +18,12 @@
 | X=2| p(X=2 & Y=1) | P(X=2 & Y=2) | P(X=2 & Y=3)| P(X=2) |
 | P(Y) | p(Y=1) | P(Y=2) | P(Y=3)| 1|
 
+
+**Discuss**:
+  - Joint Probabilities  P(X & Y)
+  - Marginal Probabilities P(X), P(Y)
+  - Conditional Probabilities P(X|Y), P(Y|X)
+  - Independence P(X,Y)=P(X)P(Y)
+  - Conditional Independence   P(X,Y|Z)=P(X|Z)p(Y|Z)
       
 [Main](https://github.com/gdlc/STT465/blob/master/README.md)  
