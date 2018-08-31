@@ -63,3 +63,4 @@
   **Exchangeability & Conditional Independence**
  
 [Main](https://github.com/gdlc/STT465/blob/master/README.md)  
+
