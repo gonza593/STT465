@@ -53,7 +53,7 @@
 
   i. The marginal probabilities of X and Y given Z.
   ii. Are X and Y conditionally independent?
- iii. Find P(X,Y) (marginal joint probability)
- iv. Are X and Y independent?
+  iii. Find P(X,Y) (marginal joint probability)
+  iv. Are X and Y independent?
  
 [Main](https://github.com/gdlc/STT465/blob/master/README.md)  
