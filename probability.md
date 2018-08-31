@@ -58,5 +58,8 @@
   3. Find P(X,Y) (marginal joint probability)
 
   4. Are X and Y independent?
+  
+  
+  **Exchangeability & Conditional Independence**
  
 [Main](https://github.com/gdlc/STT465/blob/master/README.md)  
