@@ -50,6 +50,7 @@
 |  | ? | ? | 
 
 **Find**: 
+
   i. The marginal probabilities of X and Y given Z.
   ii. Are X and Y conditionally independent?
  iii. Find P(X,Y) (marginal joint probability)
