@@ -12,7 +12,7 @@
       - Important (frequentist) properites of estimators: Bias, Variance, Mean-Squared Error.
       - Some problems with Frequentist inference
         
-    3. The Bayesian (Laplace?) Paradigm
+   3. The Bayesian (Laplace?) Paradigm
       - [A bit of history](https://projecteuclid.org/download/pdf_1/euclid.ba/1340371071)
       - In Bayesian Inference:
            - We use probablities to describe beliefs (see Chapter 2 in the book for a discussion)
