@@ -9,15 +9,14 @@
       - Population/Sample/Estimator/Sampling distribution
       - Example: inference on the population mean.
       - [Simualtion example](samplingDistribution.md)
-      - Important Frequentist properites of estimators: Bias, Variance, Mean-Squared Error.
+      - Important (frequentist) properites of estimators: Bias, Variance, Mean-Squared Error.
       - Some problems with Frequentist inference
         
     3. The Bayesian (Laplace?) Paradigm
       - [A bit of history](https://projecteuclid.org/download/pdf_1/euclid.ba/1340371071)
       - In Bayesian Inference:
-            * We use probablities to describe beliefs (see Chapter 2 in the book for a discussion)
-          
-            * Inferences are based on the posterior probability of the uknonws (e.g., parameters) given the observables (i.e., data).
+           - We use probablities to describe beliefs (see Chapter 2 in the book for a discussion)
+           - Inferences are based on the posterior probability of the uknonws (e.g., parameters) given the observables (i.e., data).
       
       
       
